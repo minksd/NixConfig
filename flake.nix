@@ -115,6 +115,15 @@
             imports
             ;
         };
+        minksdLaptop = import ./minksdLaptop {
+          inherit
+            system
+            inputs
+            globals
+            overlays
+            imports
+            ;
+        };
         minksdWSL = import ./minksdWSL {
           inherit
             system
@@ -128,6 +137,7 @@
       homeConfigurations = {
         minksdHome = nixosConfigurations.minksdHome.config.home-manager.users.minksd.home;
         minksdWSL = nixosConfigurations.minksdWSL.config.home-manager.users.minksd.home;
+	        minksdLaptop = nixosConfigurations.minksdLaptop.config.home-manager.users.minksd.home;
       };
       packages = {
         minksdHome =
@@ -150,6 +160,17 @@
               overlays
               ;
           };
+	          minksdLaptop =
+          system:
+          import ./minksdLaptop {
+            inherit
+              system
+              inputs
+              globals
+              overlays
+              ;
+          };
+
       };
       formatter."${system}" = nixpkgs.legacyPackages.${system}.nixfmt-tree;
     };
