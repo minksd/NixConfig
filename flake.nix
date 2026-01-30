@@ -43,10 +43,6 @@
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
-    oisd = {
-      url = "https://big.oisd.nl/domainswild";
-      flake = false;
-    };
     noctalia = {
       url = "github:noctalia-dev/noctalia-shell";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
@@ -59,6 +55,14 @@
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.darwin.follows = "";
+    };
+    oisd = {
+      url = "https://big.oisd.nl/domainswild";
+      flake = false;
+    };
+    wallpapers = {
+      url = "github:OrbEnforcer/Nihon-Walls";
+      flake = false;
     };
   };
   outputs =

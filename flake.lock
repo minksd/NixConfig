@@ -342,7 +342,8 @@
         "nur": "nur",
         "oisd": "oisd",
         "rust-overlay": "rust-overlay",
-        "sops-nix": "sops-nix"
+        "sops-nix": "sops-nix",
+        "wallpapers": "wallpapers"
       }
     },
     "rust-analyzer-src": {
@@ -429,6 +430,22 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
+        "type": "github"
+      }
+    },
+    "wallpapers": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1719920433,
+        "narHash": "sha256-wf2M6OmFF3aSYAcsWS0/UNptS/AXAhCpRZgc8Mqe9vU=",
+        "owner": "OrbEnforcer",
+        "repo": "Nihon-Walls",
+        "rev": "f36b8b5c1ba58a6ba316cb7aa39f4c8efb5bf774",
+        "type": "github"
+      },
+      "original": {
+        "owner": "OrbEnforcer",
+        "repo": "Nihon-Walls",
         "type": "github"
       }
     },

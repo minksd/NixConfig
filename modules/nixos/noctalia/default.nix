@@ -10,6 +10,7 @@
   options.noctalia.enable = lib.mkEnableOption { default = false; };
 
   config = lib.mkIf (config.noctalia.enable) {
+    services.upower.enable = true;
     environment.systemPackages = builtins.attrValues {
       inherit (pkgs)
         pavucontrol
@@ -32,9 +33,11 @@
             predefinedScheme = "Kanagawa";
           };
 
-          wallPaper = {
-            overviewEnabled = true;
-            randomEnabled = true;
+          wallpaper = {
+            overviewEnabled = false;
+	    directory = "${inputs.wallpapers}/8k Japan/";
+	    automationEnabled = true;
+	    wallpaperChangeMode = "random";
             randomIntervalSec = 120;
             transitionDuration = 1500;
           };
@@ -42,7 +45,12 @@
           bar = {
             widgets = {
               right = [
-                {
+ 	        {
+                  alwaysShowPercentage = true;
+                  id = "Battery";
+                  warningThreshold = 20;
+                }
+	        {
                   id = "ScreenRecorder";
                 }
                 {
