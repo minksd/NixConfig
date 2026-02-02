@@ -73,7 +73,7 @@ hardware = {
             vial
             ;
           inherit (pkgs.jetbrains)
-            idea-ultimate
+            idea
             rust-rover
             ;
         };
