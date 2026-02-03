@@ -49,6 +49,7 @@ inputs.nixpkgs.lib.nixosSystem rec {
 hardware = {
           graphics.enable = true;
           graphics.enable32Bit = true;
+          bluetooth.enable = true;
 	  };
 
         }
