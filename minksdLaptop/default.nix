@@ -44,15 +44,16 @@ inputs.nixpkgs.lib.nixosSystem rec {
     (
       { config, ... }:
       {
+        
         boot.kernelPackages = config._module.args.upkgs.linuxPackages_latest; # or specialArgs.upkgs.linuxKernel.packages.linux_x_xx for specific kernel
 
-hardware = {
+        hardware = {
           graphics.enable = true;
           graphics.enable32Bit = true;
           bluetooth.enable = true;
-	  };
+	      };
 
-        }
+      }
     )
 
     #Other config
