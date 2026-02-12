@@ -63,8 +63,9 @@
       "gnss-ubx"
 
       # https://en.wikipedia.org/wiki/Bluetooth#History_of_security_concerns
-      "bluetooth"
-      "btusb"
+      #"bluetooth"
+      #"btusb"
+      
       # block loading ath_pci
       "ath_pci"
 

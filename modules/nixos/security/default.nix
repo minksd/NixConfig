@@ -59,7 +59,7 @@
     # Only needed for WWAN/3G/4G modems, otherwise it runs `mmcli` unnecessarily
     networking.modemmanager.enable = false;
     # Bluetooth has a long history of vulnerabilities
-    hardware.bluetooth.enable = false;
+    hardware.bluetooth.enable = lib.mkDefault false;
     # Prefer manual upgrades on a hardened system
     system.autoUpgrade.enable = false;
 
