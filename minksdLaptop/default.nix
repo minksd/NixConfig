@@ -166,6 +166,7 @@ inputs.nixpkgs.lib.nixosSystem rec {
       gui.enable = true;
 
       tuned.enable = true;
+      minecraft.enable = true;
       nh.enable = true;
       direnv.enable = true;
       desktop.niri.enable = true;
