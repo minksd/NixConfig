@@ -29,6 +29,7 @@
     ./alacritty.nix
     ./i2p.nix
     ./ddns
+    ./wireguard
   ];
   options = {
     user = lib.mkOption {
