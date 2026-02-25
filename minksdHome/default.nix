@@ -92,7 +92,7 @@ inputs.nixpkgs.lib.nixosSystem rec {
             vial
             ;
           inherit (pkgs.jetbrains)
-            idea-ultimate
+            idea
             rust-rover
             ;
         };
