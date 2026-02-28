@@ -14,9 +14,17 @@ in
     publicKeys = users ++ systems;
     armor = true;
   };
+  "wg-minksdHome.age" = {
+    publicKeys = users ++ systems;
+    armor = true;
+  };
+  "wg-minksdLaptop.age" = {
+    publicKeys = users ++ systems;
+    armor = true;
+  };
   "minksdHome-ddns.age" = {
     publicKeys = [ minksdHome homeSystem ];
     armor = true;
   };
-    
+
 }
