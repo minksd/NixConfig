@@ -1,45 +1,44 @@
 {config, lib, ...}:{
   config = {
     networking.wg-quick.interfaces = lib.mkMerge [
+      #Configuration for minksdHome
       (lib.mkIf (config.networking.hostname == "minksdHome") {
         wg0 = {
           address = [ 
             "fd31:bf08:57cb::1/128"
-            "192.168.26.1/32"
+            "192.168.2.1/32"
           ];
           dns = [ "127.0.0.1" "::1" ];
           privateKeyFile = config.age.secrets.wg-minksdHome.path;
           peers = [
             {
-              # minksdWSL
-              publicKey = ;
+              # minksdLaptop
+              publicKey = builtins.readFile ./wg-minksdLaptop.pub;
               allowedIPs = [
-                "fd31:bf08:57cb::2/128"
-                "192.168.26.2/32"
+                "0.0.0.0/0"
               ];
-              endpoint = "192.168.1.56:51820";
             }
           ];
         };
       })
-      (lib.mkIf (config.networking.hostname == "minksdWSL") {
+      #Configuration for minksdLaptop
+      (lib.mkIf (config.networking.hostname == "minksdLaptop") {
         wg0 = {
           address = [ 
-            "fd31:bf08:57cb::8/128"
-            "192.168.26.8/32"
+            "fd31:bf08:57cb::2/128"
+            "192.168.2.2/32"
           ];
-          # use dnscrypt, or proxy dns as described above
-          dns = [ "127.0.0.1" ];
-          privateKeyFile = config.age.secrets.wg-key-laptop.path;
+          dns = [ "127.0.0.1" "::1" ];
+          privateKeyFile = config.age.secrets.wg-minksdLaptop.path;
           peers = [
             {
-              # bt wg conf
-              publicKey ="";
+              # minksdHome
+              publicKey = builtins.readFile ./wg-minksdHome.pub;
               allowedIPs = [
-                "fd31:bf08:57cb::8/128"
-                "192.168.26.8/32"
+                "fd31:bf08:57cb::1/128"
+                "192.168.2.1/32"
               ];
-              endpoint = "192.168.1.56:51820";
+              endpoint = "minksdHome.minksulivarri.org:51820";
             }
           ];
         };
