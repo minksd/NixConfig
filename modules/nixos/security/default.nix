@@ -37,6 +37,7 @@
     };
 
     #agenix is currently bugged such that declarative users cant have their passwords loaded at runtime when using userborn
+    #https://github.com/ryantm/agenix/pull/353
     #services.userborn.enable = true;
 
     #https://saylesss88.github.io/nix/hardening_NixOS.html#hardening-systemd
