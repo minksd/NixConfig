@@ -196,6 +196,7 @@ inputs.nixpkgs.lib.nixosSystem rec {
       steam.enable = true;
       lutris.enable = true;
       minecraft.enable = true;
+      ddns.enable = true;
     }
   ];
 }

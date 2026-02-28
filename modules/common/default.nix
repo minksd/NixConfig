@@ -28,6 +28,7 @@
     ./wezterm
     ./alacritty.nix
     ./i2p.nix
+    ./ddns
   ];
   options = {
     user = lib.mkOption {
