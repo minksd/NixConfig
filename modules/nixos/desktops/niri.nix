@@ -31,10 +31,13 @@
     programs.niri.package = pkgs.niri-unstable;
 
     services.displayManager.enable = true;
-    services.displayManager.sddm.enable = true;
-    services.displayManager.sddm.wayland = {
+    services.displayManager.sddm = {
       enable = true;
-      compositor = "kwin";
+      wayland = {
+        enable = true;
+        compositor = "kwin";
+      };
+      theme = "${pkgs.catppuccin-sddm}/share/sddm/themes/catppuccin-mocha-mauve";
     };
     environment.variables.NIXOS_OZONE_WL = "1";
 
