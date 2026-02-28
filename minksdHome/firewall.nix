@@ -22,6 +22,9 @@
       # Most NixOS workstations won't need any here.
 
       # 53 # DNS - Only if running a public DNS server.
+
+      #Wireguard
+      51820
     ];
   };
 }
