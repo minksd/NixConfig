@@ -1,9 +1,11 @@
 let
   minksdHome = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPODHCes9I0A6TBXsvIhLe/wiVF9l/cOctdA7c9kFIVT minksd@minksdHome";
-  users = [ minksdHome ];
+  minksdLaptop = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKqfui2LI/B5DsFeAPkduoQkRKn78p0Jdy9s0BPIZVkJ minksd@minksdLaptop";
+  users = [ minksdHome minksdLaptop ];
 
   homeSystem = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILylSBBn9xqo3z8ljF4VrYtOlXpBN3WzymWqhZW+WF+r root@minksdHome";
-  systems = [ homeSystem ];
+  laptopSystem = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINFSzzkZ3HUGwJZTY7x9lohW3IAq1kOKZULrdtng+wbr root@minksdLaptop";
+  systems = [ homeSystem laptopSystem ];
 in
 {
   "minksdPass.age" = {
