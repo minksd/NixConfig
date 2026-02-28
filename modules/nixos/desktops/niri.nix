@@ -32,7 +32,10 @@
 
     services.displayManager.enable = true;
     services.displayManager.sddm.enable = true;
-    services.displayManager.sddm.wayland.enable = true;
+    services.displayManager.sddm.wayland = {
+      enable = true;
+      compositor = "kwin";
+    };
     environment.variables.NIXOS_OZONE_WL = "1";
 
     home-manager.users.${config.user} =
