@@ -36,6 +36,11 @@
             helper = "oauth";
           };
         }
+        {
+          push = {
+            autoSetupRemote = true;
+          };
+        }
       ];
     };
 
