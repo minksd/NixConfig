@@ -20,7 +20,7 @@
       enable = true;
       eula = true;
       openFirewall = true;
-      servers.fabric = {
+      servers.fabricServer = {
         enable = true;
 
         jvmOpts = "-Xms2048M -Xmx4096M";
@@ -37,6 +37,18 @@
               #             };
             }
           );
+        };
+      };
+      servers.chosenSeed = {
+        enable = true;
+
+        jvmOpts = "-Xms2048M -Xmx4096M";
+        # Specify the custom minecraft server package
+        package = pkgs.vanillaServers.vanilla;
+
+        serverProperties = {
+          server-port = 51000;
+          level-seed = -2950580325944898288;
         };
       };
     };

@@ -16,6 +16,9 @@
       # 53  # DNS - Only if running a public DNS server.
       # 80  # HTTP - Only if hosting a website.
       # 443 # HTTPS - Only if hosting a secure website.
+
+      #Minecraft Servers
+      51000
     ];
     allowedUDPPorts = [
       # Ports open for inbound UDP traffic.
@@ -25,6 +28,9 @@
 
       #Wireguard
       51820
+
+      #Minecraft Servers
+      51000
     ];
   };
 }
