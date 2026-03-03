@@ -30,6 +30,7 @@
     ./i2p.nix
     ./ddns
     ./wireguard
+    ./unison.nix
   ];
   options = {
     user = lib.mkOption {
