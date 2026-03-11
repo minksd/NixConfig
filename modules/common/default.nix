@@ -30,6 +30,7 @@
     ./i2p.nix
     ./ddns
     ./wireguard
+    ./unison.nix
   ];
   options = {
     user = lib.mkOption {
@@ -108,5 +109,29 @@
       # Pin a state version to prevent warnings
       home-manager.users.${config.user}.home.stateVersion = stateVersion;
       home-manager.users.root.home.stateVersion = stateVersion;
+
+      networking.hosts = {
+        "192.168.2.1" = ["minksdHome.localdomain"];
+        "192.168.2.2" = ["minksdLaptop.localdomain"];
+      };
+      nix = {
+        distributedBuilds = true;
+        buildMachines = let system = "x86_64-linux"; in [
+          {
+            inherit system;
+            hostName = "minksdLaptop.localdomain";
+            speedFactor = 1;
+            protocol = "ssh-ng";
+            sshUser = config.user;
+          }
+          {
+            inherit system;
+            hostName = "minksdHome.localdomain";
+            speedFactor = 3;
+            protocol = "ssh-ng";
+            sshUser = config.user;
+          }
+        ];
+      };
     };
 }

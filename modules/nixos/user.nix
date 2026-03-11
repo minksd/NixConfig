@@ -13,7 +13,6 @@
     # Allows us to declaritively set password if false
     users.mutableUsers = false;
 
-    # Define a user account. Don't forget to set a password with ‘passwd’.
     users.users.minksd = {
 
       # Create a home directory for human user
@@ -27,6 +26,7 @@
       ];
     };
     users.groups.minksd = { };
+    nix.settings.trusted-users = ["minksd"];
 
     home-manager.users."${config.user}" = {
 
