@@ -4,17 +4,7 @@
     security.polkit = {
       enable = true;
       debug = true;
-      package = pkgs.polkit.overrideAttrs (
-        final: prev: {
-          src = pkgs.fetchFromGitHub {
-            owner = "polkit-org";
-            repo = "polkit";
-            tag = lib.warn "Check Nixpkgs to see if pokit 127+ is published yet" "127";
-            hash = "sha256-YTugETy0rqu/bv53jV1UeGqSK79bRXR52EJNcTblvzo=";
-          };
-          patches = [ ];
-        }
-      );
+      package = pkgs.polkit;
 
       extraConfig = ''
         polkit.addRule(function(action, subject) {

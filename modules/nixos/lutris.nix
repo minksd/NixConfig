@@ -11,7 +11,7 @@
   config = lib.mkIf (config.lutris.enable && pkgs.stdenv.isLinux) {
     environment.systemPackages = with upkgs; [
       lutris
-      wineWowPackages.waylandFull
+      wineWow64Packages.waylandFull
       protobuf
     ];
   };

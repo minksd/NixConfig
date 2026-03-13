@@ -50,9 +50,6 @@
           createDirectories = true;
           documents = "$HOME/documents";
           download = config.userDirs.download;
-          extraConfig = {
-            XDG_DEV_DIR = "$HOME/dev";
-          };
         };
       };
     };
