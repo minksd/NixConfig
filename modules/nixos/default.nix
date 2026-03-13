@@ -14,6 +14,7 @@
     ./tuned.nix
     ./noctalia
     ./hyprlock
+    ./dnscrypt-proxy.nix
   ];
 
 }

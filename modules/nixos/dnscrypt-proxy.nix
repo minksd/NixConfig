@@ -6,7 +6,7 @@
 }:
 
 let
-  blocklist_base = builtins.readFile inputs.oisd;
+  blocklist_base = builtins.readFile "${inputs.oisd}/big/domains";
   extraBlocklist = '''';
   blocklist_txt = pkgs.writeText "blocklist.txt" ''
     ${extraBlocklist}

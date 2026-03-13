@@ -57,7 +57,7 @@
       inputs.darwin.follows = "";
     };
     oisd = {
-      url = "https://big.oisd.nl/domainswild";
+      url = "github:cbuijs/oisd";
       flake = false;
     };
     wallpapers = {

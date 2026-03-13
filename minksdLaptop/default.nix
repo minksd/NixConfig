@@ -22,7 +22,6 @@ inputs.nixpkgs.lib.nixosSystem rec {
   modules = imports ++ [
     ../modules/common
     ../modules/nixos
-    ./dnscrypt-proxy.nix
     ./firewall.nix
     ./hardware-configuration.nix
     (

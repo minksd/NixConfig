@@ -341,13 +341,17 @@
     "oisd": {
       "flake": false,
       "locked": {
-        "narHash": "sha256-qu5TxzP9YwmeRKT1bz33G/FQ+fL5XDJ20gd/EMyzBMc=",
-        "type": "file",
-        "url": "https://big.oisd.nl/domainswild"
+        "lastModified": 1773360880,
+        "narHash": "sha256-p+HGWPn5bgQHjtsKaBhmAtPNNwlYANGp4f2NO9bObPQ=",
+        "owner": "cbuijs",
+        "repo": "oisd",
+        "rev": "8676fda8d424abfa83d603e57d52c1ec5601323f",
+        "type": "github"
       },
       "original": {
-        "type": "file",
-        "url": "https://big.oisd.nl/domainswild"
+        "owner": "cbuijs",
+        "repo": "oisd",
+        "type": "github"
       }
     },
     "root": {

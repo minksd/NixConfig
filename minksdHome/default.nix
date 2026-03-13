@@ -24,7 +24,6 @@ inputs.nixpkgs.lib.nixosSystem rec {
     ../modules/nixos
     ./boot.nix
     ./fs.nix
-    ./dnscrypt-proxy.nix
     ./firewall.nix
 
     (
