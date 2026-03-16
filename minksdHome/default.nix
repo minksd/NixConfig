@@ -102,7 +102,11 @@ inputs.nixpkgs.lib.nixosSystem rec {
       };
       system.stateVersion = "24.04";
       home-manager.backupFileExtension = "backup";
-      nix.settings.experimental-features = "flakes nix-command";
+      nix.settings = {
+        cores = 4;
+        max-jobs = 3;
+        experimental-features = "flakes nix-command";
+      };
 
       hardware.cpu.intel.updateMicrocode = true;
 
