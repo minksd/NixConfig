@@ -116,26 +116,6 @@
       };
       nix = {
         distributedBuilds = true;
-        buildMachines = let system = "x86_64-linux"; in lib.mkMerge [
-          [
-            (lib.mkIf( config.networking.hostName != "minksdLaptop" ){
-              inherit system;
-              hostName = "minksdLaptop.localdomain";
-              speedFactor = 1;
-              protocol = "ssh-ng";
-              sshUser = config.user;
-            })
-          ]
-          [
-            (lib.mkIf( config.networking.hostName != "minksdHome" ){
-              inherit system;
-              hostName = "minksdHome.localdomain";
-              speedFactor = 3;
-              protocol = "ssh-ng";
-              sshUser = config.user;
-            })
-          ]
-        ];
       };
     };
 }
