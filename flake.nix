@@ -15,6 +15,18 @@
       url = "github:nix-community/NixOS-WSL/main";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
+
+    lix = {
+      url = "https://git.lix.systems/lix-project/lix/archive/main.tar.gz";
+      flake = false;
+    };
+
+    lix-module = {
+      url = "https://git.lix.systems/lix-project/nixos-module/archive/main.tar.gz";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.lix.follows = "lix";
+    };
+    
     home-manager = {
       url = "github:/nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
@@ -70,6 +82,7 @@
       self,
       nixpkgs,
       nixpkgs-unstable,
+      lix-module,
       nur,
       niri,
       fenix,
@@ -96,6 +109,7 @@
         nix-minecraft.nixosModules.minecraft-servers
         sops-nix.nixosModules.sops
         agenix.nixosModules.default
+        lix-module.nixosModules.default
       ];
       globals =
         let
