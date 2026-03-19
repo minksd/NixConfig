@@ -9,9 +9,11 @@
 {
 
   config = {
-    users.users.root.openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJwTtdUEANYjL0U/k+AQNYKs2ZmiRMUVD4IXPVZC9oi9 root@minksdLaptop
-"];
-    
+    users.users.root.openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJwTtdUEANYjL0U/k+AQNYKs2ZmiRMUVD4IXPVZC9oi9 root@minksdLaptop
+"
+    ];
+
     # Allows us to declaritively set password if false
     users.mutableUsers = false;
 
@@ -28,7 +30,7 @@
       ];
     };
     users.groups.minksd = { };
-    nix.settings.trusted-users = ["minksd"];
+    nix.settings.trusted-users = [ "minksd" ];
 
     home-manager.users."${config.user}" = {
 

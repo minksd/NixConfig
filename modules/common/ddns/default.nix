@@ -2,7 +2,8 @@
   config,
   lib,
   ...
-}:{
+}:
+{
   options = {
     ddns = {
       enable = lib.mkEnableOption {
@@ -12,7 +13,7 @@
     };
   };
 
-  config = lib.mkIf(config.ddns.enable == true){
+  config = lib.mkIf (config.ddns.enable == true) {
     services.cloudflare-ddns = {
       enable = true;
       credentialsFile = config.age.secrets.minksdHome-ddns.path;

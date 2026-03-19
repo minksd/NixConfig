@@ -35,9 +35,9 @@
 
           wallpaper = {
             overviewEnabled = false;
-	    directory = "${inputs.wallpapers}/8k Japan/";
-	    automationEnabled = true;
-	    wallpaperChangeMode = "random";
+            directory = "${inputs.wallpapers}/8k Japan/";
+            automationEnabled = true;
+            wallpaperChangeMode = "random";
             randomIntervalSec = 120;
             transitionDuration = 1500;
           };
@@ -45,12 +45,12 @@
           bar = {
             widgets = {
               right = [
- 	        {
+                {
                   alwaysShowPercentage = true;
                   id = "Battery";
                   warningThreshold = 20;
                 }
-	        {
+                {
                   id = "ScreenRecorder";
                 }
                 {

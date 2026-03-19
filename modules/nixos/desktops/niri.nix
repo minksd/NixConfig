@@ -61,7 +61,7 @@
               "Mod+H".action = focus-column-left;
               "Mod+L".action = focus-column-right;
               "Mod+S".action = zsh ''grim -g "$(slurp)" - | wl-copy'';
-              "Ctrl+Shift+L".action = zsh ''hyprlock'';
+              "Ctrl+Shift+L".action = zsh "hyprlock";
 
               #          "Ctrl+Shift+P".action = screenshot;
             };

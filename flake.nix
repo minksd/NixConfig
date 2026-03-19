@@ -26,7 +26,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.lix.follows = "lix";
     };
-    
+
     home-manager = {
       url = "github:/nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
@@ -155,7 +155,7 @@
       homeConfigurations = {
         minksdHome = nixosConfigurations.minksdHome.config.home-manager.users.minksd.home;
         minksdWSL = nixosConfigurations.minksdWSL.config.home-manager.users.minksd.home;
-	        minksdLaptop = nixosConfigurations.minksdLaptop.config.home-manager.users.minksd.home;
+        minksdLaptop = nixosConfigurations.minksdLaptop.config.home-manager.users.minksd.home;
       };
       packages = {
         minksdHome =
@@ -178,7 +178,7 @@
               overlays
               ;
           };
-	          minksdLaptop =
+        minksdLaptop =
           system:
           import ./minksdLaptop {
             inherit

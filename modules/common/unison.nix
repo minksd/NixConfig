@@ -4,10 +4,11 @@
   pkgs,
   home-manager,
   ...
-}:{
+}:
+{
   config = {
     environment.systemPackages = [ pkgs.unison ];
-    home-manager.users.${config.user} = lib.mkIf( config.networking.hostName == "minksdLaptop") {
+    home-manager.users.${config.user} = lib.mkIf (config.networking.hostName == "minksdLaptop") {
       services.unison = {
         enable = true;
         pairs = {
@@ -27,5 +28,5 @@
       };
     };
   };
-  
+
 }

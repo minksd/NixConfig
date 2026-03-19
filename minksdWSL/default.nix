@@ -16,7 +16,7 @@ inputs.nixpkgs.lib.nixosSystem {
   modules =
     let
       system = "x86_64-linux";
-      pkgs = import inputs.nixpkgs {inherit system overlays;};
+      pkgs = import inputs.nixpkgs { inherit system overlays; };
     in
     imports
     ++ [
@@ -48,7 +48,7 @@ inputs.nixpkgs.lib.nixosSystem {
 
         networking.hostName = "minksdWSL";
 
-        environment.systemPackages = with pkgs;[
+        environment.systemPackages = with pkgs; [
         ];
 
         git.enable = true;

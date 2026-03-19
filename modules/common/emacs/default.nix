@@ -16,8 +16,8 @@
   config = lib.mkIf (config.emacs.enable == true) {
     services.emacs = {
       enable = true;
-      package =
-        ((pkgs.emacsPackagesFor pkgs.emacs-pgtk).emacsWithPackages (
+      package = (
+        (pkgs.emacsPackagesFor pkgs.emacs-pgtk).emacsWithPackages (
           epkgs:
           builtins.attrValues {
             inherit (epkgs)
@@ -33,7 +33,8 @@
               elixir-mode
               ;
           }
-        ));
+        )
+      );
       startWithGraphical = false;
       install = true;
     };
