@@ -46,7 +46,7 @@ inputs.nixpkgs.lib.nixosSystem rec {
     (
       { config, ... }:
       {
-        boot.kernelPackages = config._module.args.upkgs.linuxPackages_latest; # or specialArgs.upkgs.linuxKernel.packages.linux_x_xx for specific kernel
+        boot.kernelPackages = config._module.args.upkgs.linuxPackages_testing; # or specialArgs.upkgs.linuxKernel.packages.linux_x_xx for specific kernel
 
         #nvidia/graphics
         hardware = {
