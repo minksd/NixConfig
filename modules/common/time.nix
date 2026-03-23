@@ -6,11 +6,12 @@
 }:
 {
 
-  options.chrony.enable = lib.mkEnableOption { default = false; };
+  options.chrony.enable =  lib.mkEnableOption {
+    default = false;
+  };
 
   config = {
     time.timeZone = "America/New_York";
-    chrony.enable = false;
     networking.timeServers = lib.mkIf (!config.chrony.enable) [ "time.nist.gov" ];
     services.chrony = lib.mkIf (config.chrony.enable) {
       enable = true;

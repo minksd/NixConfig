@@ -180,6 +180,7 @@ inputs.nixpkgs.lib.nixosSystem rec {
       teams.enable = true;
       steam.enable = true;
       lutris.enable = true;
+      chrony.enable = true;
     }
   ];
 }
