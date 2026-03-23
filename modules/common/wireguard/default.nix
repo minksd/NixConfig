@@ -53,5 +53,14 @@
         };
       })
     ];
+
+    #Ensure that wireguard starts even after failing. Retry <burst> number of times every <interval> seconds.
+    systemd.services.wg-quick-wg0 = {
+      startLimitBurst = 5;
+      startLimitIntervalSec = 15;
+      serviceConfig = {
+        Restart = "on-failure";
+      };
+    };
   };
 }
