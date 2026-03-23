@@ -112,7 +112,9 @@
 
       networking.hosts = {
         "192.168.2.1" = [ "minksdHome.localdomain" ];
+        "fd31:bf08:57cb::1" = [ "minksdHome.localdomain" ];
         "192.168.2.2" = [ "minksdLaptop.localdomain" ];
+        "fd31:bf08:57cb::2" = [ "minksdLaptop.localdomain" ];
       };
       nix = {
         distributedBuilds = true;
