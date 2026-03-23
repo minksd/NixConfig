@@ -14,6 +14,12 @@
     };
   };
   config = lib.mkIf (config.emacs.enable == true) {
+    environment.systemPackages = builtins.attrValues {
+      inherit (pkgs)
+        #For installing certain language servers.
+        nodejs_24
+        ;
+    };
     services.emacs = {
       enable = true;
       package = (
