@@ -54,6 +54,8 @@
           };
 
         };
+        #Because the default changed from openpgp to null and I don't use this setting.
+        signing.format = null;
       };
     };
   };
