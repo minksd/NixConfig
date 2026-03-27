@@ -65,6 +65,11 @@ inputs.nixpkgs.lib.nixosSystem rec {
         };
       };
 
+      nix.settings = {
+        cores = 6;
+        max-jobs = 2;
+      };
+
       i18n.defaultLocale = "en_US.UTF-8";
 
       environment = {
@@ -165,7 +170,7 @@ inputs.nixpkgs.lib.nixosSystem rec {
       gui.enable = true;
 
       tuned.enable = true;
-      minecraft.enable = true;
+      minecraft.enable = false;
       nh.enable = true;
       direnv.enable = true;
       desktop.niri.enable = true;
