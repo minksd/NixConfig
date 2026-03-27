@@ -6,7 +6,7 @@
 }:
 {
 
-  options.chrony.enable =  lib.mkEnableOption {
+  options.chrony.enable = lib.mkEnableOption {
     default = false;
   };
 
