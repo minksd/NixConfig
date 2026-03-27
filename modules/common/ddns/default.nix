@@ -13,7 +13,7 @@
     };
   };
 
-  config = lib.mkIf (config.ddns.enable == true) {
+  config = lib.mkIf (config.ddns.enable == true && config.networking.hostName == "minksdHome") {
     services.cloudflare-ddns = {
       enable = true;
       credentialsFile = config.age.secrets.minksdHome-ddns.path;
