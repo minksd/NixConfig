@@ -1,4 +1,3 @@
-
 {
   system,
   globals,
@@ -37,6 +36,7 @@ inputs.nixpkgs.lib.nixosSystem rec {
             inherit system overlays;
             config = {
               allowUnfree = true;
+              nvidia.acceptLicense = true;
             };
           };
         };
@@ -52,7 +52,7 @@ inputs.nixpkgs.lib.nixosSystem rec {
         #nvidia/graphics
         hardware = {
           nvidia = {
-            package = config.boot.kernelPackages.nvidiaPackages.stable; # or vulkan_beta
+            package = config.boot.kernelPackages.nvidiaPackages.legacy_580; # 1050ti out of support :(
             modesetting.enable = true;
             powerManagement.enable = true;
             powerManagement.finegrained = false;
