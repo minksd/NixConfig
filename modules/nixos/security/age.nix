@@ -15,7 +15,7 @@
       inputs.agenix.packages."${pkgs.stdenv.hostPlatform.system}".default
     ];
     services.openssh = {
-      enable = true;
+      enable = lib.mkDefault true;
     };
 
     age = {
