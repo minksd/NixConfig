@@ -202,6 +202,7 @@ inputs.nixpkgs.lib.nixosSystem rec {
       lutris.enable = true;
       minecraft.enable = true;
       ddns.enable = true;
+      chrony.enable = true;
     }
   ];
 }
