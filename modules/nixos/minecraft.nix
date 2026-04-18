@@ -20,6 +20,7 @@
       enable = true;
       eula = true;
       openFirewall = true;
+      managementSystem.systemd-socket.enable = true;
       servers.fabricServer = {
         enable = true;
 
@@ -44,7 +45,9 @@
 
         jvmOpts = "-Xms2048M -Xmx4096M";
         # Specify the custom minecraft server package
-        package = pkgs.vanillaServers.vanilla;
+        package = pkgs.minecraftServers.vanilla-1_21_11.override {
+          jre_headless = pkgs.jdk21_headless;
+        };
 
         serverProperties = {
           server-port = 51000;
