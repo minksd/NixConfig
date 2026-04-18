@@ -135,12 +135,19 @@ inputs.nixpkgs.lib.nixosSystem rec {
           jack.enable = true;
         };
 
+
+        udev = {
+          extraRules = ''
         #For vial to access my cheapino
-        udev.extraRules = ''
-          KERNEL=="hidraw*", SUBSYSTEM=="hidraw", MODE="0666", GROUP="users", TAG+="uaccess", TAG+="udev-acl"
+        KERNEL=="hidraw*", SUBSYSTEM=="hidraw", MODE="0666", GROUP="users", TAG+="uaccess", TAG+="udev-acl"
         '';
+          packages = [
+            pkgs.probe-rs-tools
+          ];
+        };
       };
 
+      
       xdg = {
         portal = {
           enable = true;

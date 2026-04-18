@@ -27,9 +27,13 @@
       extraGroups = [
         "wheel" # Sudo privileges
         "docker" # Allow access to the docker daemon
+        "plugdev" # Added to allow probe-rs udev rules"
       ];
     };
-    users.groups.minksd = { };
+    users.groups = {
+      minksd = { };
+      plugdev = {};
+    };
     nix.settings.trusted-users = [ "minksd" ];
 
     home-manager.users."${config.user}" = {
