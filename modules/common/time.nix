@@ -17,6 +17,7 @@
       enable = true;
       enableNTS = true;
       serverOption = "iburst";
+      servers = [];
       extraConfig = ''
         server time.cloudflare.com iburst nts key 1
         server ntp1.glypnod.com iburst nts key 2
