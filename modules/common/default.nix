@@ -101,7 +101,16 @@
     let
       stateVersion = "24.05";
     in
-    {
+      {
+        nixpkgs.overlays = [ (final: prev: {
+          inherit (prev.lixPackageSets.latest)
+            nixpkgs-review
+            nix-eval-jobs
+            nix-fast-build
+            colmena;
+        }) ];
+
+        nix.package = pkgs.lixPackageSets.stable.lix;
       # Install packages to /etc/profiles instead of ~/.nix-profile, useful when
       # using multiple profiles for one user
       home-manager.useUserPackages = true;

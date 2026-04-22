@@ -109,7 +109,6 @@
         nix-minecraft.nixosModules.minecraft-servers
         sops-nix.nixosModules.sops
         agenix.nixosModules.default
-        lix-module.nixosModules.default
       ];
       globals =
         let
