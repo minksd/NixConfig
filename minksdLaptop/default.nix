@@ -117,6 +117,8 @@ inputs.nixpkgs.lib.nixosSystem rec {
           jack.enable = true;
         };
 
+        fwupd.enable = true;
+
         #For vial to access my cheapino
         udev.extraRules = ''
           KERNEL=="hidraw*", SUBSYSTEM=="hidraw", MODE="0666", GROUP="users", TAG+="uaccess", TAG+="udev-acl"
