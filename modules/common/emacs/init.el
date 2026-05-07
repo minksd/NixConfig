@@ -17,6 +17,11 @@
 
 ;;------Setting variables------
 
+(setq frame-resize-pixelwise t)
+(setq frame-inhibit-implied-resize t)
+(tool-bar-mode -1)
+(menu-bar-mode -1)
+
 ;;Disable the startup screen
 (setq inhibit-startup-screen t)
 ;;Move all backups to ~/.ebackups
@@ -33,12 +38,13 @@
 (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
 (projectile-mode +1)
 
-(use-package helm-projectile)
-(helm-projectile-on)
+(use-package helm-projectile
+  :after (helm projectile)
+  :config (helm-projectile-on))
 
 ;;company-mode
 (use-package company)
-(add-hook 'after-init-hook 'global-company-mode)
+(add-hook 'prog-mode-hook 'company-mode)
 
 ;;lsp-mode
 (use-package lsp-mode
@@ -51,6 +57,10 @@
          (lsp-mode . lsp-enable-which-key-integration))
   :commands lsp)
 
+;;Adds flycheck for inline syntax checking
+(use-package flycheck)
+(add-hook 'prog-mode-hook 'flycheck-mode)
+
 ;;Rust Configuration
 (load "~/.emacs.d/rust.el")
 
@@ -62,10 +72,6 @@
 
 ;;Nix Configuration
 (load "~/.emacs.d/nix.el")
-
-;;Adds flycheck for inline syntax checking
-(use-package flycheck)
-(add-hook 'after-init-hook #'global-flycheck-mode)
 
 (provide 'init)
 ;;;
