@@ -31,6 +31,7 @@
     ./ddns
     ./wireguard
     ./unison.nix
+    ./ghostty.nix
   ];
   options = {
     user = lib.mkOption {

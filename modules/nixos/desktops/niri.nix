@@ -53,7 +53,7 @@
           in
           {
             binds = {
-              "Mod+Q".action.spawn = "alacritty";
+              "Mod+Q".action.spawn = "ghostty";
               "Mod+R".action.spawn = "fuzzel";
               "Mod+P".action = quit;
               "Mod+F".action = fullscreen-window;
