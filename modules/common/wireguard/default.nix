@@ -1,7 +1,18 @@
 { config, lib, ... }:
 {
   config = {
-    networking.wg-quick.interfaces = lib.mkMerge [
+    networking.wg-quick.interfaces = let
+      sharedPeers = [
+        {
+          # minksdPixel
+          publicKey = builtins.readFile ./wg-minksdPixel.pub;
+          allowedIPs = [
+            "192.168.2.3/32"
+            "fd31:bf08:57cb::3/128"
+          ];
+        }
+      ];
+    in lib.mkMerge [
       #Configuration for minksdHome
       (lib.mkIf (config.networking.hostName == "minksdHome") {
         wg0 = {
@@ -24,7 +35,7 @@
                 "fd31:bf08:57cb::2/128"
               ];
             }
-          ];
+          ] ++ sharedPeers;
         };
       })
       #Configuration for minksdLaptop
@@ -47,9 +58,9 @@
                 "fd31:bf08:57cb::1/128"
                 "192.168.2.1/32"
               ];
-              endpoint = "minksdHome.minksulivarri.org:51820";
+              endpoint = "home.minksd.us:51820";
             }
-          ];
+          ] ++ sharedPeers;
         };
       })
     ];

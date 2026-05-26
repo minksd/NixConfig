@@ -16,9 +16,9 @@
   config = lib.mkIf (config.ddns.enable == true && config.networking.hostName == "minksdHome") {
     services.cloudflare-ddns = {
       enable = true;
-      credentialsFile = config.age.secrets.minksdHome-ddns.path;
+      credentialsFile = config.age.secrets.home_minksd-ddns.path;
       domains = [
-        "minksdHome.minksulivarri.org"
+        "home.minksd.us"
       ];
       proxied = "true";
     };

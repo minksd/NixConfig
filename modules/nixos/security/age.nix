@@ -21,7 +21,7 @@
     age = {
       secrets = {
         minksdPass.file = "${globals.secretsDir}/minksdPass.age";
-        minksdHome-ddns.file = "${globals.secretsDir}/minksdHome-ddns.age";
+        home_minksd-ddns.file = "${globals.secretsDir}/home_minksd-ddns.age";
         wg-minksdHome.file = "${globals.secretsDir}/wg-minksdHome.age";
         wg-minksdLaptop.file = "${globals.secretsDir}/wg-minksdLaptop.age";
       };

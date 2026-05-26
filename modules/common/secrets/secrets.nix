@@ -30,7 +30,7 @@ in
     publicKeys = users ++ systems;
     armor = true;
   };
-  "minksdHome-ddns.age" = {
+  "home_minksd-ddns.age" = {
     publicKeys = [
       minksdHome
       homeSystem
