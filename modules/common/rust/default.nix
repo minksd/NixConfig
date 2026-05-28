@@ -16,7 +16,6 @@
 
   config = lib.mkIf (config.rust.enable) {
     environment.systemPackages = [
-      pkgs.rust-analyzer-nightly
     ];
   };
 
