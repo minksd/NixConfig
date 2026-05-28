@@ -2,7 +2,6 @@
 {
   config = {
     environment.systemPackages = [
-      pkgs.rust-analyzer-nightly
     ];
 
     home-manager.users.${config.user} = {
