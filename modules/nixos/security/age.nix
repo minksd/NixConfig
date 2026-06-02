@@ -24,6 +24,7 @@
         minksdHome-ddns.file = "${globals.secretsDir}/minksdHome-ddns.age";
         wg-minksdHome.file = "${globals.secretsDir}/wg-minksdHome.age";
         wg-minksdLaptop.file = "${globals.secretsDir}/wg-minksdLaptop.age";
+        wg-spot-color-site-02.file = "${globals.secretsDir}/wg-spot-color-site-02.age";
       };
     };
   };
