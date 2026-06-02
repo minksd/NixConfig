@@ -30,6 +30,10 @@ in
     publicKeys = users ++ systems;
     armor = true;
   };
+  "wg-spot-color-site-02.age" = {
+    publicKeys = users ++ systems;
+    armor = true;
+  };
   "minksdHome-ddns.age" = {
     publicKeys = [
       minksdHome
