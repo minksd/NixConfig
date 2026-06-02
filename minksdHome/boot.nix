@@ -20,6 +20,11 @@
     kernelModules = [
       "i915"
     ];
+    kernelParams = [
+      "nvidia-drm.modeset=1"
+      "nvidia-drm.fbdev=1"
+      "nvidia.NVreg_EnableGpuFirmware=0"
+    ];
     extraModulePackages = [ ];
     loader = {
       efi.canTouchEfiVariables = true;
@@ -35,11 +40,6 @@
         MAILADDR danielminks1230@gmail.com
       '';
     };
-    extraModprobeConfig = ''
-      blacklist nouveau
-      options nouveau modeset=0
-      options nvidia-drm modeset=1 fbdev=0
-    '';
   };
 
 }

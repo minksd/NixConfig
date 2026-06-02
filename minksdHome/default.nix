@@ -98,8 +98,8 @@ inputs.nixpkgs.lib.nixosSystem rec {
             ;
         };
         variables = {
-          EDITOR = "emacsclient";
-          VISUAL = "emacsclient";
+          EDITOR = "emacs -nw";
+          VISUAL = "emacs -nw";
         };
       };
       system.stateVersion = "24.04";

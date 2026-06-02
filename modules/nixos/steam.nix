@@ -16,10 +16,9 @@
     programs.steam = {
       enable = true;
       remotePlay.openFirewall = true;
-      extraCompatPackages = [ pkgs.proton-ge-bin ];
       gamescopeSession.enable = true;
     };
-    programs.gamescope.capSysNice = true;
+    programs.gamescope.capSysNice = false;
 
   };
 }
