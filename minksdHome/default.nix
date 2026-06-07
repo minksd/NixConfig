@@ -145,6 +145,9 @@ inputs.nixpkgs.lib.nixosSystem rec {
             pkgs.probe-rs-tools
           ];
         };
+
+        #Enable the guix daemon
+        guix.enable = true;
       };
 
       
