@@ -24,6 +24,7 @@ inputs.nixpkgs.lib.nixosSystem rec {
     ../modules/nixos
     ./firewall.nix
     ./hardware-configuration.nix
+    ./noctalia.nix
     (
       { config, ... }:
       {

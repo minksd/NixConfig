@@ -56,7 +56,7 @@
     };
 
     noctalia = {
-      url = "github:noctalia-dev/noctalia-shell";
+      url = "github:noctalia-dev/noctalia";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
     sops-nix = {
