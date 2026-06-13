@@ -18,89 +18,57 @@
     };
 
     home-manager.users.${config.user} =
-      { config, ... }:
-      {
-        imports = [
-          inputs.noctalia.homeModules.default
-        ];
-        programs.noctalia-shell.systemd.enable = true;
-        programs.noctalia-shell.enable = true;
-        programs.noctalia-shell.settings = {
-          ui.fontDefault = "M+1Code Nerd Font Propo";
-          location.weatherEnabled = false;
+      let
+        statTypes = ["cpu_usage" "cpu_temp" "ram_pct" "swap_pct"];
+        sysmonFromType = type: {name = type; value = {
+          type = "sysmon";
+          stat = type;
+        };};
+        all-stats = lib.listToAttrs (lib.forEach statTypes sysmonFromType);
+      in
+        { config, ... }:
+        {
+          imports = [
+            inputs.noctalia.homeModules.default
+          ];
+          programs.noctalia.systemd.enable = true;
+          programs.noctalia.enable = true;
+          programs.noctalia.settings = {
+            shell = {
+              font_family = "M+1Code Nerd Font Propo";
+              polkit_agent = true;
+              show_location = false;
+            };
 
-          colorSchemes = {
-            predefinedScheme = "Kanagawa";
-          };
+            widget =  {
+            } // all-stats;
+            
+            bar = {
+              order = [ "main" ];
+              main = {
+                radius = 0;
+                margin_ends = 0;
+                margin_edge = 0;
+                capsule = true;
+                start = ["active_window" ] ++ statTypes;
+                center = ["workspaces"];
+                end = lib.mkBefore [ "screenrecorder" "tray" "notifications" "volume" "network" "clock"];
+              };
+            };
+            theme = {
+              builtin = "Kanagawa";
+            };
 
-          wallpaper = {
-            overviewEnabled = false;
-            directory = "${inputs.wallpapers}/8k Japan/";
-            automationEnabled = true;
-            wallpaperChangeMode = "random";
-            randomIntervalSec = 120;
-            transitionDuration = 1500;
-          };
-
-          bar = {
-            widgets = {
-              right = [
-                {
-                  alwaysShowPercentage = true;
-                  id = "Battery";
-                  warningThreshold = 20;
-                }
-                {
-                  id = "ScreenRecorder";
-                }
-                {
-                  id = "Tray";
-                }
-                {
-                  id = "NotificationHistory";
-                }
-                {
-                  id = "Volume";
-                }
-                {
-                  id = "Clock";
-                }
-              ];
+            wallpaper = {
+              directory = "${inputs.wallpapers}/8k Japan/";
+              automation = {
+                enabled = true;
+                interval_seconds = 60;
+                order = "random";
+              };
+              transition_duration = 1500;
             };
           };
-          controlCenter.shortcuts = {
-            left = [
-              {
-                id = "ScreenRecorder";
-              }
-              {
-                id = "WallpaperSelector";
-              }
-            ];
-            right = [
-              {
-                id = "Notifications";
-              }
-              {
-                id = "PowerProfile";
-              }
-              {
-                id = "KeepAwake";
-              }
-              {
-                id = "NightLight";
-              }
-            ];
-          };
-
-          audio = {
-            visualizerQuality = "low";
-            preferredPlayer = "spotify";
-          };
-          network = {
-            wifiEnabled = false;
-          };
         };
-      };
   };
 }
