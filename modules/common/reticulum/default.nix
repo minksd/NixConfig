@@ -72,6 +72,7 @@ in {
         settings = lib.mkOption {
           type = lib.types.attrsOf (lib.types.oneOf [
             lib.types.str
+            lib.types.number
             lib.types.bool
             lib.types.path
           ]);
