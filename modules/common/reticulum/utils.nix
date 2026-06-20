@@ -9,6 +9,8 @@ lib: rec {
       then (addLine "${keyval.name} = ${lib.toString keyval.value}" acc)
       else if type == "bool"
       then (addLine "${keyval.name} = ${boolToString keyval.value}" acc)
+      else if type == "int"
+      then (addLine "${keyval.name} = ${lib.toString keyval.value}" acc)
       else throw "The provided value ${keyval.value} for key ${keyval.name} was not correct";
 
     loggingFold = acc: keyval: let

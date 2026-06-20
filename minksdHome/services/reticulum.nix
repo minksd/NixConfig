@@ -11,12 +11,12 @@
           additionalSettings = {
             target_host = "mia.us.thunderhost.net";
             target_port = "4242";
-            bootstrap_only = true;
           };
         }
       ];
       settings = {
         discover_interfaces = true;
+        autoconnect_discovered_interfaces = 16;
         enable_transport = false;
         share_instance = true;
         instance_name = "default";
