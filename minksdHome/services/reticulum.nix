@@ -1,0 +1,26 @@
+{config,...}:
+{
+  config.services.reticulum = {
+    enable = true;
+    nixConfig = {
+      interfaces = [
+        {
+          enabled = true;
+          type = "TCPClientInterface";
+          name = "DefaultInterface";
+          additionalSettings = {
+            target_host = "mia.us.thunderhost.net";
+            target_port = "4242";
+            bootstrap_only = true;
+          };
+        }
+      ];
+      settings = {
+        discover_interfaces = true;
+        enable_transport = false;
+        share_instance = true;
+        instance_name = "default";
+      };
+    };
+  };
+}

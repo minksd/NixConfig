@@ -32,6 +32,7 @@
     ./wireguard
     ./unison.nix
     ./ghostty.nix
+    ./reticulum
   ];
   options = {
     user = lib.mkOption {
