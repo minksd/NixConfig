@@ -37,11 +37,7 @@
 
             source $ZSH/oh-my-zsh.sh
 
-            alias config-edit="emacs /home/minksd/nixos/"
-            alias config-test="sudo nixos-rebuild --flake /home/minksd/nixos test"
-            alias config-rebuild="sudo nixos-rebuild --flake /home/minksd/nixos/ boot"
-            alias config-update="cd /home/minksd/nixos; sudo nix flake update; cd -"
-            alias emacs="emacs -nw"
+            alias emacs="emacsclient"
 
             alias sudo="run0" #Sudo is disabled on this system, use run0 instead
 
