@@ -13,6 +13,7 @@
     ./tuned.nix
     ./noctalia
     ./hyprlock
+    ./vaultwarden
     ./dnscrypt-proxy.nix
   ];
 

@@ -41,5 +41,9 @@ in
     ];
     armor = true;
   };
+  "vaultwarden-ssl-key.age" = {
+    publicKeys = users ++ systems;
+    armor = true;
+  };
 
 }

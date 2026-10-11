@@ -25,6 +25,13 @@
         wg-minksdHome.file = "${globals.secretsDir}/wg-minksdHome.age";
         wg-minksdLaptop.file = "${globals.secretsDir}/wg-minksdLaptop.age";
         wg-spot-color-site-02.file = "${globals.secretsDir}/wg-spot-color-site-02.age";
+        vaultwarden-ssl-private-key = {
+          name = "vaultwarden.key";
+          file = "${globals.secretsDir}/vaultwarden-ssl-key.age";
+          owner = "nginx";
+          group = "nginx";
+          mode = "400";
+        };
       };
     };
   };
