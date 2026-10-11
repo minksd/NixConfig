@@ -174,6 +174,7 @@ inputs.nixpkgs.lib.nixosSystem {
       gui.enable = true;
 
       minksd.desktopEnv = "plasma";
+      minksd.openvpn = true;
       tuned.enable = true;
       nh.enable = true;
       direnv.enable = true;

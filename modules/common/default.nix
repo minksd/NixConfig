@@ -11,12 +11,12 @@
     ./extras.nix
     ./firefox.nix
     ./foot
-    ./neovim
     ./ssh.nix
     ./sway.nix
     ./teams.nix
     ./waybar
     ./xterm.nix
+    ./openvpn3
     ./zoom.nix
     ./zsh
     ./emacs
