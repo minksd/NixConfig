@@ -8,9 +8,11 @@ let
 
   homeSystem = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILylSBBn9xqo3z8ljF4VrYtOlXpBN3WzymWqhZW+WF+r root@minksdHome";
   laptopSystem = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINFSzzkZ3HUGwJZTY7x9lohW3IAq1kOKZULrdtng+wbr root@minksdLaptop";
+  wheatly = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKzHaIhm9H7PEpywOdJVRHegmfXqV0VRoo0Np2y8IbQ8 root@wheatly";
   systems = [
     homeSystem
     laptopSystem
+    wheatly
   ];
 in
 {
