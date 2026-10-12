@@ -10,6 +10,7 @@
   };
   inputs = rec {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-master.url = "github:NixOS/nixpkgs/master";
     nixos-wsl = {
       url = "github:nix-community/NixOS-WSL/main";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -80,6 +81,7 @@
     {
       self,
       nixpkgs,
+      nixpkgs-master,
       lix-module,
       nur,
       niri,
@@ -158,10 +160,12 @@
           ;
         };
       };
-      homeConfigurations = {
-        minksdHome = nixosConfigurations.minksdHome.config.home-manager.users.minksd.home;
-        minksdWSL = nixosConfigurations.minksdWSL.config.home-manager.users.minksd.home;
-        minksdLaptop = nixosConfigurations.minksdLaptop.config.home-manager.users.minksd.home;
+      homeConfigurations = let
+        getHomeConfig = system: nixosConfigurations.${system}.config.home-manager.users.minksd.home;
+        in {
+        minksdHome = getHomeConfig "minksdHome";
+        minksdWSL = getHomeConfig "minksdWSL";
+        minksdLaptop = getHomeConfig "minksdLaptop";
       };
       packages = {
         minksdHome =
@@ -199,6 +203,6 @@
           };
 
       };
-      formatter.${system} = nixpkgs.legacyPackages.${system}.nixfmt-tree;
+
     };
 }
