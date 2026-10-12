@@ -16,7 +16,7 @@
     ./teams.nix
     ./waybar
     ./xterm.nix
-    ./openvpn3
+    ./openvpn
     ./zoom.nix
     ./zsh
     ./emacs
