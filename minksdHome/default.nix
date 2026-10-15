@@ -94,6 +94,8 @@ inputs.nixpkgs.lib.nixosSystem {
 
       #pipewire/wireplumber
       security.rtkit.enable = true;
+      
+      programs.droidcam.enable = true;
 
       services = {
         #printing and avahi are both to enable network printing
@@ -103,6 +105,7 @@ inputs.nixpkgs.lib.nixosSystem {
           nssmdns4 = true;
           openFirewall = true;
         };
+
 
         pipewire = {
           enable = true;
