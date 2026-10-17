@@ -1,7 +1,5 @@
 {
-  lib,
-  config,
-  pkgs,
+ config,
   ...
 }:
 {
@@ -14,7 +12,16 @@
         X11Forwarding = true;
       };
     };
-
+    home-manager.users.${config.user} = {
+      programs.ssh = {
+        enable = true;
+        settings."*" = {
+          ControlMaster = "auto";
+          ControlPath = "~/.ssh/master-%C";
+          ControlPersist = "10m";
+        };
+      };
+    };
   };
 
 }
