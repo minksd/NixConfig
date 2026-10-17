@@ -112,9 +112,6 @@
         agenix.nixosModules.default
       ];
       globals =
-        let
-          baseName = "minksulivarri.com";
-        in
         rec {
           secretsDir = ./modules/common/secrets;
           packagesDir = ./packages;
@@ -150,6 +147,16 @@
           ;
         };
         minksdWSL = import ./minksdWSL {
+          inherit
+            system
+            inputs
+            globals
+            overlays
+            imports
+            specialArgs
+          ;
+        };
+        wheatly = import ./wheatly {
           inherit
             system
             inputs
