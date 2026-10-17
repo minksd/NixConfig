@@ -37,6 +37,11 @@
 
             source $ZSH/oh-my-zsh.sh
 
+            #So that connections like TRAMP dont have to deal with ANSI BS
+            if [[ "$TERM" == "dumb" ]]; then
+               PS1='$ '
+            fi
+
             alias emacs="emacsclient"
 
             alias sudo="run0" #Sudo is disabled on this system, use run0 instead
