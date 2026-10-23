@@ -37,6 +37,7 @@
               lsp-java
               rust-mode
               elixir-mode
+              csharp-mode
               ;
           }
         )
@@ -53,5 +54,6 @@
     ./elixir.nix
     ./rust.nix
     ./nix.nix
+    ./csharp.nix
   ];
 }
