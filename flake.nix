@@ -8,7 +8,7 @@
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
     ];
   };
-  inputs = rec {
+  inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-master.url = "github:NixOS/nixpkgs/master";
     nixos-wsl = {
@@ -54,6 +54,7 @@
       url = "github:nix-community/fenix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    flake-parts.url = "github:hercules-ci/flake-parts";
 
     noctalia = {
       url = "github:noctalia-dev/noctalia";
@@ -66,150 +67,23 @@
     agenix = {
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.darwin.follows = "";
     };
     oisd = {
       url = "github:cbuijs/oisd";
       flake = false;
     };
+    import-tree.url = "github:denful/import-tree";
     local-packages = {
       url = "github:minksd/Packages";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
-  outputs =
-    {
-      self,
-      nixpkgs,
-      nixpkgs-master,
-      lix-module,
-      nur,
-      niri,
-      fenix,
-      nix-minecraft,
-      home-manager,
-      rust-overlay,
-      sops-nix,
-      agenix,
-      local-packages,
-      ...
-    }@inputs:
-    let
-      system = "x86_64-linux";
-      overlays = [
-        nur.overlays.default
-        niri.overlays.niri
-        rust-overlay.overlays.default
-        fenix.overlays.default
-        nix-minecraft.overlay
-      ];
-      imports = [
-        nix-minecraft.nixosModules.minecraft-servers
-        home-manager.nixosModules.home-manager
-        niri.nixosModules.niri
-        nix-minecraft.nixosModules.minecraft-servers
-        sops-nix.nixosModules.sops
-        agenix.nixosModules.default
-      ];
-      globals =
-        rec {
-          secretsDir = ./modules/common/secrets;
-          packagesDir = ./packages;
-          user = "minksd";
-          fullName = "Daniel Minks";
-          gitName = fullName;
-          inherit self;
-        };
-      specialArgs = {
-        inherit system overlays inputs globals;
-      };
-    in
-    rec {
-      nixosConfigurations = {
-        minksdHome = import ./minksdHome {
-          inherit
-            system
-            inputs
-            globals
-            overlays
-            imports
-            specialArgs
-            ;
-        };
-        minksdLaptop = import ./minksdLaptop {
-          inherit
-            system
-            inputs
-            globals
-            overlays
-            imports
-            specialArgs
-          ;
-        };
-        minksdWSL = import ./minksdWSL {
-          inherit
-            system
-            inputs
-            globals
-            overlays
-            imports
-            specialArgs
-          ;
-        };
-        wheatly = import ./wheatly {
-          inherit
-            system
-            inputs
-            globals
-            overlays
-            imports
-            specialArgs
-          ;
-        };
-      };
-      homeConfigurations = let
-        getHomeConfig = system: nixosConfigurations.${system}.config.home-manager.users.minksd.home;
-        in {
-        minksdHome = getHomeConfig "minksdHome";
-        minksdWSL = getHomeConfig "minksdWSL";
-        minksdLaptop = getHomeConfig "minksdLaptop";
-      };
-      packages = {
-        minksdHome =
-          system:
-          import ./minksdHome {
-            inherit
-              system
-              inputs
-              globals
-              overlays
-              specialArgs
-            ;
-          };
-        minksdWSL =
-          system:
-          import ./minksdWSL {
-            inherit
-              system
-              inputs
-              globals
-              overlays
-              specialArgs
-            ;
-          };
-        minksdLaptop =
-          system:
-          import ./minksdLaptop {
-            inherit
-              system
-              inputs
-              globals
-              overlays
-              specialArgs
-            ;
-          };
-
-      };
-
-    };
+  outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } {
+    debug = true;
+    imports = [
+      inputs.flake-parts.flakeModules.modules
+      
+      (inputs.import-tree ./modules)
+    ];
+  };
 }
