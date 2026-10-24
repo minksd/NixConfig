@@ -10,5 +10,6 @@
     users.mutableUsers = false;
 
     users.groups.plugdev = {};
+
   };
 }

@@ -49,7 +49,7 @@
       };
       graphics.enable = true;
       graphics.enable32Bit = true;
-
+      cpu.intel.updateMicrocode = true;
     };
     services.xserver.videoDrivers = [ "nvidia" ];
   };

@@ -16,17 +16,19 @@
       };
     };
   };
-  flake.modules.homeManager.minksd = {
-    home-manager.users.minksd = {
-      programs.ssh = {
-        enable = true;
-        settings."*" = {
-          ControlMaster = "auto";
-          ControlPath = "~/.ssh/master-%C";
-          ControlPersist = "10m";
-        };
+  flake.modules.homeManager.ssh = {
+    programs.ssh = {
+      enable = true;
+      enableDefaultConfig = false;
+      settings."*" = {
+        ForwardAgent = false;
+        AddKeysToAgent = "yes";
+        Compression = true;
+        
+        ControlMaster = "auto";
+        ControlPath = "~/.ssh/master-%C";
+        ControlPersist = "10m";
       };
     };
-
   };
 }
