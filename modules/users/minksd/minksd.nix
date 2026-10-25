@@ -44,6 +44,7 @@
       # Set directories for application defaults
       userDirs = {
         enable = true;
+        setSessionVariables = false;
         createDirectories = true;
         documents = "$HOME/documents";
         download = "$HOME/downloads";
