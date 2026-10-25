@@ -7,7 +7,8 @@
   perSystem = { system, config, ... }: {
     _module.args.pkgs = import inputs.nixpkgs {
       inherit system;
-      overlays = [ ];
+      overlays = [
+      ];
       config = {
         allowUnfree = true;
       };
