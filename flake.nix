@@ -13,11 +13,12 @@
       url = "github:/hercules-ci/flake-parts";
       inputs.nixpkgs-lib.follows = "nixpkgs";
     };
+    ghostty.url = "github:ghostty-org/ghostty";
     home-manager = {
       url = "github:/nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    import-tree.url = "github:/den/import-tree";
+    import-tree.url = "github:/denful/import-tree";
     lix = {
       url = "https://git.lix.systems/lix-project/lix/archive/main.tar.gz";
       flake = false;
