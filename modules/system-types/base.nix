@@ -39,7 +39,7 @@
     networking.enableIPv6 = true;
     
     nix = {
-      package = pkgs.lixPackageSets.stable.lix;
+      package = pkgs.lixPackageSets.git.lix;
       distributedBuilds = true;
       settings = {
         experimental-features = [
